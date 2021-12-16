@@ -2,8 +2,8 @@ POST http://localhost:3009/api/shorten HTTP/1.1
 Content-Type: application/json
 
 {
-  "originalUrl":  "https://developer.typeform.com/create/reference/create-form",
-  "expirationDate": 1639653300315
+  "originalUrl":  "https://github.com/alemaocastro1986/url-shortener",
+  "expirationDate": 1639656900872
 }
 
 ###
