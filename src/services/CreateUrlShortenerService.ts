@@ -15,7 +15,7 @@ export class CreateUrlShortenerService implements IService {
   }: CreateUrlShortenerInput): Promise<CreateUrlShortenerOutput> {
     const hash = shortid.generate();
     const { host, port } = app;
-    const shortUrl = `${host}:${port}/api/${hash}`;
+    const shortUrl = `${host}:${port}/api/v1/${hash}`;
 
     const existsOriginalUrl = await this.urlRepository.findByOriginUrl(
       originalUrl
@@ -26,12 +26,14 @@ export class CreateUrlShortenerService implements IService {
     }
 
     if (expirationDate && !isValidDate(expirationDate)) {
-      throw new InvalidDateException("Invalid date format, must be a number");
+      throw new InvalidDateException(
+        "Invalid date format or date is less than current date"
+      );
     }
 
     if (expirationDate && isBefore(new Date(expirationDate), new Date())) {
       throw new InvalidDateException(
-        "Expiration date is less than current date"
+        "Invalid date format or date is less than current date"
       );
     }
 

@@ -1,0 +1,108 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Shortener Url",
+    "description": "Esta é uma API para encurtat links",
+    "contact": {
+      "name": "Andrius Cunha Castro",
+      "email": "alemaocastro1986@gmail.com",
+      "url": "https://github.com/alemaocastro1986"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3009/api/v1",
+      "description": "Api de Produção"
+    }
+  ],
+  "paths": {
+    "/shorten": {
+      "post": {
+        "summary": "Criação do link curto",
+        "description": "Esse recurso é responsável por criar um novo link curto",
+        "tags": ["link"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShortLink"
+              },
+              "examples": {
+                "link": {
+                  "value": {
+                    "originalUrl": "https://ezdevs.com.br/wp-content/uploads/2019/06/1879018_95b6.jpg",
+                    "expirationDate": 1672023540000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Invalid date format or date is less than current date",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "schema": { "$ref": "#/components/schemas/InvalidDate" }
+              }
+            }
+          },
+          "201": {
+            "description": "CREATED",
+            "content": {
+              "application/json": {
+                "type": "object",
+                "schema": { "$ref": "#/components/schemas/Url" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ShortLink": {
+        "type": "object",
+        "properties": {
+          "orignalUrl": {
+            "type": "string"
+          },
+          "expirationDate": {
+            "type": "number"
+          }
+        }
+      },
+      "InvalidDate": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "Url": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "orignalUrl": {
+            "type": "string"
+          },
+          "expirationDate": {
+            "type": "number"
+          },
+          "__v": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

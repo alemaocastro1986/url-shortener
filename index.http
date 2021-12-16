@@ -1,10 +1,10 @@
-POST http://localhost:3009/api/shorten HTTP/1.1
+POST http://localhost:3009/api/v1/shorten HTTP/1.1
 Content-Type: application/json
 
 {
-  "originalUrl":  "https://github.com/alemaocastro1986/url-shortener",
-  "expirationDate": 1639656900872
+  "originalUrl":  "https://gitshub.com/alemaocastro1986/url-shortener",
+  "expirationDate": 72
 }
 
 ###
-GET http://localhost:3009/api/ajsdhu HTTP/1.1
+GET http://localhost:3009/api/v1/ajsdhu HTTP/1.1
