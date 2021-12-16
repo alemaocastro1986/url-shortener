@@ -3,4 +3,8 @@ const app = {
   host: process.env.HOST || "http://localhost",
 };
 
-export { app };
+const databases = {
+  mongoUri: process.env.MONGO_URI || "mongodb://localhost:27017/shortener-url",
+};
+
+export { app, databases };
