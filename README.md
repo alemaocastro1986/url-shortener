@@ -1,8 +1,8 @@
 # Shortener URL
 
-É uma aplicação Backend, construida com [NodeJS](https://nodejs.org/en/), [Typescript](https://www.typescriptlang.org/) and [Express](https://expressjs.com/pt-br/) durante o Bootcamp Eduzz fullstack-developer2 na [Digital innovation one](https://web.dio.me/home).
+É uma aplicação Backend, construida com [NodeJS](https://nodejs.org/en/), [Typescript](https://www.typescriptlang.org/) e [Express](https://expressjs.com/pt-br/) durante o Bootcamp Eduzz fullstack-developer2 na [Digital innovation one](https://web.dio.me/home).
 
-Aplicação consiste em uma aplicação para criar links curtos.
+Aplicação consiste em uma [API](https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es) para criar links curtos.
 
 ## Conceitos aplicados
 
